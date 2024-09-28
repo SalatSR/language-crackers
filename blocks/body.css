@@ -1,0 +1,21 @@
+body {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-image: url('../images/doodle.webp');
+  background-size: 300px;
+  background-position: center;
+}
+
+body:after {
+	content: '';
+	background: linear-gradient(#001edbb0, #9198e5d9);
+	position: absolute;
+	height: 100%;
+    width: 100%;
+    z-index: -1;
+}

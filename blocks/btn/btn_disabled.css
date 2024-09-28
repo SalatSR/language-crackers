@@ -1,0 +1,8 @@
+.btn_disabled {
+  cursor: default;
+  background-color: #e4ddd2;
+}
+
+.btn_disabled:hover {
+  background-color: #e4ddd2;
+}

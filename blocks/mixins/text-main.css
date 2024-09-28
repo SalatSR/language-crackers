@@ -1,0 +1,11 @@
+.text-main {
+  font-family: 'Dimkin Bold';
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "BNCE" 0,
+    "INFM" 0,
+    "SPAC" 0;
+	color: #dcac6d;
+}

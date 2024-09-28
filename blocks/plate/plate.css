@@ -1,0 +1,14 @@
+.plate {
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.plate legend {
+  font-size: 20px;
+}
+
+@media screen and (min-width: 599px) {
+  .plate legend {
+    font-size: 26px;
+  }
+}

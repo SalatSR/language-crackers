@@ -1,0 +1,85 @@
+@import '../vendor/normalize.css';
+@import '../vendor/fonts/fonts.css';
+@import '../blocks/animations/animations.css';
+@import '../blocks/body.css';
+@import '../blocks/err-message.css';
+@import '../blocks/img-btn-icon.css';
+
+/* MIXINS */
+
+@import '../blocks/mixins/animation-rolling.css';
+@import '../blocks/mixins/background-color-main.css';
+@import '../blocks/mixins/text-main.css';
+@import '../blocks/mixins/btn-text.css';
+
+/* POPUP */
+
+@import '../blocks/popup/popup.css';
+@import '../blocks/popup/popup__container.css';
+@import '../blocks/popup/popup__title.css';
+@import '../blocks/popup/popup__subtitle.css';
+@import '../blocks/popup/popup__score.css';
+@import '../blocks/popup/popup__btn';
+
+@import '../blocks/page/page.css';
+@import '../blocks/page/page__ads.css';
+
+/* ADS */
+
+@import '../blocks/ads/ads.css';
+
+@import '../blocks/screen/screen.css';
+
+@import '../blocks/btn/btn.css';
+@import '../blocks/btn/btn_back.css';
+@import '../blocks/btn/btn_start.css';
+@import '../blocks/btn/btn_addpair.css';
+@import '../blocks/btn/btn_submit-radio.css';
+@import '../blocks/btn/btn_submit-check.css';
+
+/* INTRO */
+
+@import '../blocks/intro/intro__header.css';
+@import '../blocks/intro/intro__title.css';
+@import '../blocks/intro/intro__subtitle.css';
+@import '../blocks/header.css';
+@import '../blocks/logo.css';
+@import '../blocks/title.css';
+@import '../blocks/subtitle.css';
+@import '../blocks/nav-intro/nav-intro.css';
+@import '../blocks/nav-intro/nav-intro__btn.css';
+
+/* ABUOT */
+
+@import '../blocks/about/about.css';
+
+/* MENU */
+
+@import '../blocks/menu/menu.css';
+@import '../blocks/timer-panel.css';
+
+@import '../blocks/plate/plate.css';
+@import '../blocks/plate/plate_radioplate.css';
+@import '../blocks/plate/plate_checkplate.css';
+
+@import '../blocks/radiolist/radiolist.css';
+@import '../blocks/radiolist/radiolist__input.css';
+@import '../blocks/radiolist/radiolist__input-radio.css';
+@import '../blocks/radiolist/radiolist__btn.css';
+@import '../blocks/checklist/checklist.css';
+@import '../blocks/checklist/checklist__input-check.css';
+@import '../blocks/input-radio/input-radio.css';
+
+/* MAIN */
+
+@import '../blocks/main/main.css';
+@import '../blocks/panel/panel.css';
+@import '../blocks/timer.css';
+
+@import '../blocks/cards.css';
+@import '../blocks/card/card.css';
+@import '../blocks/card/card_active.css';
+
+@import '../blocks/btn/btn_disabled.css';
+@import '../blocks/btn/btn_menu.css';
+@import '../blocks/btn/btn_reset.css';

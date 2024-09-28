@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="<%=require('./images/favicons/favicon.png')%>">
+
+  <!-- Manifest -->
+  <!-- <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="PWA Workshop" />
+  <meta name="apple-mobile-web-app-title" content="PWA Workshop" />
+  <meta name="msapplication-starturl" content="/index.html" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- /Manifest -->
+
+  <meta name="yandex-verification" content="c0d70ebaa432d8de" />
+
+  <meta property="og:title" content="Учи иностранный язык | Бесплатная браузерная игра" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://language-cracker.ru" />
+  <meta property="og:description" content="Добавляй новые слова и находи пары слов на время" />
+  <meta name="description" content="Добавляй новые слова и находи пары слов на время" />
+  <meta name="keywords"
+    content="Изучение, иностранный язык, бесплатная браузерная игра, тест, викторина, играть без регистрации, онлайн, на время, английский, китайский, немецкий, испанский, французский" />
+
+  <link rel="canonical" href="https://language-cracker.ru" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <title>language cracker</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(97458368, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/97458368" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Yandex.RTB -->
+  <script>window.yaContextCb = window.yaContextCb || []</script>
+  <script src="https://yandex.ru/ads/system/context.js" async></script>
+</head>
+
+<body>
+  <div class="page">
+    <article class="page__ads ads ads_top">
+      <div id="yandex_rtb_R-A-9063705-1"></div>
+    </article>
+    <article class="page__ads ads ads_left">
+      <div id="yandex_rtb_R-A-9063705-3"></div>
+    </article>
+    <div class="screen screen__intro intro">
+      <div class="intro__header header">
+        <img src="<%=require('./images/cracker-cartoon.webp')%>" alt="logo cracker" id="intro-logo"
+          class="intro__logo logo animation-rolling">
+        <h1 class="intro__title title text-main">Language Cracker
+        </h1>
+        <p class="intro__subtitle subtitle">learn language with
+          challenge</p>
+      </div>
+      <nav class="intro__nav-intro nav-intro">
+        <button id="btn-to-play" class="nav-intro__btn btn btn_play text-main"><span>ИГРАТЬ</span></button>
+        <button id="btn-to-about" class="nav-intro__btn btn btn_about text-main"><span>ОБ ИГРЕ</span></button>
+      </nav>
+    </div>
+    <div class="screen screen__about about">
+      <h2 class="about__title text-main">Об игре</h2>
+      <p class="about__paragraph text-main">
+        Привет, пользователь, language cracker - игра, в которой тебе предстоит
+        находить пары слов: "слово-перевод".
+        </br>
+        </br>
+        Новые слова необходимо добавлять в меню, в соответствующем поле.
+        Они сохраняются в "localstorage", то есть в памяти браузера.
+        Но это не означает, что игра будет работать без интернета.
+        <b>Для загрузки игры понадобится интернет.</b>
+        </br>
+        </br>
+        Language cracker - игра, которая существует только за счет рекламы.
+        Со временем планируется дальнейшее развитие.
+      </p>
+      <button id="btn-back-about"
+        class="about__btn btn btn_back font-color-main text-main btn-text">
+        <img
+          src="<%=require('./images/icons/icon-btn-back.svg')%>"
+          alt="back icon"
+          class="about__img-btn-icon img-btn-icon animation-rolling">
+      </button>
+    </div>
+    <div class="screen screen__menu menu">
+      <!-- <button id="btn-add-on-desktop"
+        class="menu__btn btn btn_add-on-desktop font-color-main text-main btn-text"><span>Добавить
+          на гл. экран</span></button> -->
+      <button id="btn-add-new-words" class="menu__btn btn btn_add-new-words font-color-main text-main btn-text"><span>
+          Добавить новые
+          слова</span></button>
+      <button id="btn-game-settings" class="menu__btn btn btn_game-settings font-color-main text-main btn-text"><span>
+          Настройки
+          игры</span></button>
+      <div class="menu__timer-panel timer-panel">
+        <label class="menu__input-label text-main" for="hendletimer"></label>
+        <input
+          type="range"
+          id="hendletimer"
+          name="volume"
+          min="5"
+          max="180"
+          step="5"
+          value="90" />
+      </div>
+      <button id="btn-back-menu"
+        class="menu__btn btn btn_back font-color-main text-main btn-text">
+        <img
+          src="<%=require('./images/icons/icon-btn-back.svg')%>"
+          alt="back icon"
+          class="menu__img-btn-icon img-btn-icon animation-rolling">
+      </button>
+    </div>
+    <main class="screen screen__main main">
+      <div class="main__panel panel">
+        <button
+          id="btn-back-main"
+          class="panel__btn btn btn_back font-color-main text-main btn-text">
+          <img
+            src="<%=require('./images/icons/icon-btn-back.svg')%>"
+            alt="back icon"
+            class="panel__img-btn-icon img-btn-icon animation-rolling">
+        </button>
+        <div id="timer" class="panel__timer timer font-color-main text-main"><span></span></div>
+        <button
+          id="btn-menu"
+          class="panel__btn btn btn_menu font-color-main text-main">
+          <img
+            src="<%=require('./images/icons/icon-btn-options.svg')%>"
+            alt="gear options icon"
+            id="options-icon"
+            class="panel__img-btn-icon img-btn-icon animation-rolling">
+        </button>
+        <button id="btn-reset" class="panel__btn btn btn_reset font-color-main text-main">
+          <img
+            src="<%=require('./images/icons/icon-btn-reset.svg')%>"
+            alt="reset icon"
+            id="reset-icon"
+            class="panel__img-btn-icon img-btn-icon animation-rolling">
+        </button>
+      </div>
+      <div class="main__playground playground">
+        <button id="btn-start" class="main__btn btn btn_start font-color-main text-main btn-text"><span>СТАРТ</span>
+        </button>
+        <section class="main__cards cards" onmousedown="return false" onselectstart="return false">
+          <div class="card card_left font-color-main text-main" data-state="empty"></div>
+          <div class="card card_right font-color-main text-main" data-state="empty"></div>
+          <div class="card card_left font-color-main text-main" data-state="empty"></div>
+          <div class="card card_right font-color-main text-main" data-state="empty"></div>
+          <div class="card card_left font-color-main text-main" data-state="empty"></div>
+          <div class="card card_right font-color-main text-main" data-state="empty"></div>
+          <div class="card card_left font-color-main text-main" data-state="empty"></div>
+          <div class="card card_right font-color-main text-main" data-state="empty"></div>
+          <div class="card card_left font-color-main text-main" data-state="empty"></div>
+          <div class="card card_right font-color-main text-main" data-state="empty"></div>
+        </section>
+      </div>
+    </main>
+    <article class="page__ads ads ads_right">
+      <div id="yandex_rtb_R-A-9063705-4"></div>
+    </article>
+    <article class="page__ads ads ads_bottom">
+      <div id="yandex_rtb_R-A-9063705-2"></div>
+    </article>
+  </div>
+  <div class="popup">
+    <div class="popup__container">
+      <div class="popup__content">
+
+        <!-- Добавление новых слов -->
+        <fieldset id="popup-plate-add-new-words" class="menu__plate plate plate_radioplate text-main">
+          <legend>Добавь новые слова</legend>
+          <form class="plate__radiolist radiolist" name="form-to-add-new-words">
+            <label class="radiolist__input-radio input-radio"><input name="words" type="radio" value="elementaryWords">
+              Elementary</label>
+            <label class="radiolist__input-radio input-radio"><input name="words" type="radio"
+                value="intermediateWords">
+              Intermediate</label>
+            <label class="radiolist__input-radio input-radio"><input name="words" type="radio" value="advancedWords">
+              Advanced</label>
+            <label class="radiolist__input input input_word-one"><input type="text" maxlength="24"
+                placeholder="Введите слово"></label>
+            <label class="radiolist__input input input_word-two"><input type="text" maxlength="24"
+                placeholder="Введите перевод"></label>
+            <span class="radiolist__err-message err-message"></span>
+            <input class="radiolist__btn btn btn_submit-radio" type="submit" value="Добавить">
+          </form>
+        </fieldset>
+
+        <!-- Настройки игры -->
+        <fieldset id="popup-plate-game-settings" class="menu__plate plate plate_checkplate text-main">
+          <legend>Выбери языковой уровень</legend>
+          <form class="plate__checklist checklist" name="form-to-check-game-lavel">
+            <label class="checklist__input-check input-check"><input type="checkbox" id="defaultWords" name="interest"
+                value="defaultWords" checked> Стартовый набор</label>
+            <label class="checklist__input-check input-check"><input type="checkbox" id="elementaryWords"
+                name="interest" value="elementaryWords"> Elementary</label>
+            <label class="checklist__input-check input-check"><input type="checkbox" id="intermediateWords"
+                name="interest" value="intermediateWords"> Intermediate</label>
+            <label class="checklist__input-check input-check"><input type="checkbox" id="advancedWords" name="interest"
+                value="advancedWords"> Advanced</label>
+          </form>
+        </fieldset>
+
+        <!-- Общий счёт -->
+        <div id="popup-plate-score" class="popup__score">
+          <h2 class="popup__title text-main"></h2>
+          <p class="popup__subtitle text-main"></p>
+        </div>
+
+
+      </div>
+      <button id="btn-close" class="popup__btn btn btn_close font-color-main text-main"><span>ЗАКРЫТЬ</span></button>
+    </div>
+  </div>
+
+  <script>
+    function renderAds() {
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          "blockId": "R-A-9063705-1",
+          "renderTo": "yandex_rtb_R-A-9063705-1"
+        })
+      });
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          "blockId": "R-A-9063705-2",
+          "renderTo": "yandex_rtb_R-A-9063705-2"
+        })
+      });
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          "blockId": "R-A-9063705-3",
+          "renderTo": "yandex_rtb_R-A-9063705-3"
+        })
+      });
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          "blockId": "R-A-9063705-4",
+          "renderTo": "yandex_rtb_R-A-9063705-4"
+        })
+      });
+
+      setTimeout(function () {
+        renderAds();
+      }, 60000);
+    }
+    renderAds();
+  </script>
+</body>
+
+</html>

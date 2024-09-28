@@ -1,0 +1,14 @@
+.radiolist__input-radio {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.radiolist__input-radio input {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 599px) {
+  .radiolist__input-radio {
+    font-size: 40px;
+  }
+}

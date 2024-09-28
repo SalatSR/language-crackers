@@ -1,0 +1,16 @@
+.btn_back {
+  width: 42px;
+  padding: 0;
+}
+
+@media screen and (min-width: 469px) {
+  .btn_back {
+    width: 50px;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .btn_back {
+    width: 60px;
+  }
+}

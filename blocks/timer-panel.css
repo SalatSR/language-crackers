@@ -1,0 +1,29 @@
+.timer-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-panel label {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.77);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.timer-panel input {
+  width: 100%;
+  max-width: 400px;
+}
+
+
+@media screen and (min-width: 599px) {
+  .timer-panel {
+    margin-bottom: 28px;
+  }
+
+  .timer-panel label {
+    margin-bottom: 28px;
+  }
+}

@@ -1,0 +1,31 @@
+.panel {
+  display: flex;
+  justify-content: space-around;
+}
+
+.panel__timer {
+  width: 74px;
+  font-size: 28px;
+}
+
+@media screen and (min-width: 469px) {
+  .panel__timer {
+    width: 110px;
+    font-size: 38px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .panel__timer {
+    width: 114px;
+    font-size: 46px;
+    height: 60px;
+  }
+}
+
+@media screen and (min-width: 799px) {
+  .panel__timer {
+    width: 132px;
+  }
+}

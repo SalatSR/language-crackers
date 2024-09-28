@@ -1,0 +1,37 @@
+.menu {
+  display: none;
+}
+
+.menu__btn {
+  margin-bottom: 10px;
+}
+
+.menu__btn:last-child {
+  margin-bottom: 0;
+}
+
+.menu__input-label {
+  font-size: 28px;
+  height: 34px;
+}
+
+.menu__plate {
+  margin-bottom: 20px;
+}
+
+.menu__timer-panel {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 599px) {
+  .menu__btn {
+    margin-bottom: 25px;
+  }
+
+  .menu__input-label {
+    font-size: 46px;
+    height: 56px;
+    width: 284px;
+  }
+}

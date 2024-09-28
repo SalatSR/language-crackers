@@ -1,0 +1,56 @@
+.main {
+  display: none;
+}
+
+.main__btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main__btn:hover {
+  transform: scale(1.1) translate(-50%, -50%);
+}
+
+.main__btn:disabled:hover {
+  transform: translate(-50%, -50%);
+}
+
+.main__content {
+  box-sizing: inherit;
+}
+
+.main__panel {
+  box-sizing: inherit;
+  width: 100%;
+  margin-bottom: 10px;
+  max-width: 350px;
+}
+
+.main__playground {
+  position: relative;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 469px) {
+  .main__panel {
+    margin-bottom: 30px;
+    max-width: 420px;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .main__panel {
+    margin-bottom: 14px;
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .main__panel {
+    margin-bottom: 40px;
+  }
+}

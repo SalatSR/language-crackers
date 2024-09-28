@@ -1,0 +1,23 @@
+.btn_addpair {
+  display: block;
+  position: relative;
+}
+
+.btn_addpair::before, .btn_addpair::after {
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 1px);
+  content: ' ';
+  height: 10px;
+  width: 2px;
+  background-color: #000;
+}
+
+.btn_addpair::before {
+  transform: rotate(0deg);
+}
+
+.btn_addpair::after {
+ transform: rotate(-90deg);
+}

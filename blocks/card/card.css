@@ -1,0 +1,158 @@
+.card {
+	box-sizing: border-box;
+	background-image: url('../../images/145/145-74-cracker-cartoon.webp');
+	background-size: contain;
+	border-radius: 10px;
+	display: flex;
+	font-size: 25px;
+	font-weight: 600;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 145px;
+	height: 74px;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	opacity: 1;
+	transition: .2s transform;
+	user-select: none;
+	color: #ffe8d4;
+	text-shadow: 1px 2px 4px #33200b;
+}
+
+.card.cracked {
+	background-image: none;
+	pointer-events: none !important;
+}
+
+.card.incorrect {
+	animation: horizontal-shaking .2s;
+}
+
+.card .piece {
+	display: none;
+	width: 145px;
+	height: 74px;
+	background-size: cover;
+	position: absolute;
+}
+
+.card.cracked .piece {
+	display: block;
+	animation-duration: .5s;
+	animation-fill-mode: forwards;
+}
+
+.card .piece1 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked1.webp');
+}
+
+.card .piece2 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked2.webp');
+}
+
+.card .piece3 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked3.webp');
+}
+
+.card .piece4 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked4.webp');
+}
+
+.card .piece5 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked5.webp');
+}
+
+.card .piece6 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked6.webp');
+}
+
+.card .piece7 {
+	background-image: url('../../images/145/145-74-cracker-cartoon_cracked7.webp');
+}
+
+.card.cracked .piece1 {
+	animation-name: crackPiece1;
+}
+
+.card.cracked .piece2 {
+	animation-name: crackPiece2;
+}
+
+.card.cracked .piece3 {
+	animation-name: crackPiece3;
+}
+
+.card.cracked .piece4 {
+	animation-name: crackPiece4;
+}
+
+.card.cracked .piece5 {
+	animation-name: crackPiece5;
+}
+
+.card.cracked .piece6 {
+	animation-name: crackPiece6;
+}
+
+@keyframes crackPiece1 {
+	100% {
+		transform: translateX(-3px) translateY(-3px)
+	}
+}
+
+@keyframes crackPiece2 {
+	100% {
+		transform: translateX(-3px) translateY(3px)
+	}
+}
+
+@keyframes crackPiece3 {
+	100% {
+		transform: translateY(-3px)
+	}
+}
+
+@keyframes crackPiece4 {
+	100% {
+		transform: translateX(4px) translateY(-3px)
+	}
+}
+
+@keyframes crackPiece5 {
+	100% {
+		transform: translateX(3px) translateY(4px)
+	}
+}
+
+@keyframes crackPiece6 {
+	100% {
+		transform: translateY(4px)
+	}
+}
+
+@media screen and (min-width: 469px) {
+	.card {
+		font-size: 28px;
+		width: 170px;
+		height: 88px;
+	}
+
+	.card .piece {
+		width: 170px;
+		height: 88px;
+	}
+}
+
+@media screen and (min-width: 599px) {
+	.card {
+		font-size: 34px;
+		width: 220px;
+		height: 114px;
+	}
+
+	.card .piece {
+		width: 220px;
+		height: 114px;
+	}
+}

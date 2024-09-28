@@ -1,0 +1,8 @@
+.checklist {
+  display: flex;
+  flex-direction: column;
+}
+
+.checklist label:last-child {
+  margin-bottom: 10px;
+}

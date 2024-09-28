@@ -1,0 +1,11 @@
+.logo {
+  width: 220px;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+}
+
+@media screen and (min-width: 599px) {
+  .logo {
+    width: 290px;
+  }
+}

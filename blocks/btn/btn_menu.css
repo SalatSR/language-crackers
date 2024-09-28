@@ -1,0 +1,17 @@
+.btn_menu {
+  display: flex;
+  width: 42px;
+  padding: 0;
+}
+
+@media screen and (min-width: 469px) {
+  .btn_menu {
+    width: 50px;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .btn_menu {
+    width: 60px;
+  }
+}

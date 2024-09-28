@@ -1,0 +1,21 @@
+{
+  "name": "Language Cracker",
+  "short_name": "Language Cracker",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffc4004f",
+  "background_color": "#fff",
+  "description": "App for learning languages",
+  "icons": [
+    {
+      "src": "images/icons/cracker-192-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/cracker-512-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

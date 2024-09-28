@@ -1,0 +1,12 @@
+.img-btn-icon {
+  width: 24px;
+  line-height: 0;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+}
+
+@media screen and (min-width: 599px) {
+  .img-btn-icon {
+    width: 36px;
+  }
+}

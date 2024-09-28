@@ -1,0 +1,14 @@
+.checklist__input-check {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.checklist__input-check input {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 599px) {
+  .checklist__input-check {
+    font-size: 40px;
+  }
+}

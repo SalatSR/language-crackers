@@ -1,0 +1,43 @@
+.about {
+  display: none;
+}
+
+.about__title {
+  font-size: 30px;
+  margin: 0 auto 10px;
+  padding: 3px 10px;
+  background-color: rgba(255, 255, 255, .77);
+  border-radius: 10px;
+}
+
+.about__paragraph {
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 0 9px;
+  width: 80%;
+  max-height: 320px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, .77);
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 599px) {
+  .about__title {
+    font-size: 46px;
+    margin-bottom: 20px;
+    padding: 6px 20px;
+  }
+
+  .about__paragraph {
+    font-size: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
+    max-height: 420px;
+  }
+}
+
+@media screen and (min-width: 799px) {
+  .about__paragraph {
+    font-size: 36px;
+  }
+}

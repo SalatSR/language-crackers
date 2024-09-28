@@ -1,0 +1,21 @@
+@keyframes rolling {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  80% {
+    transform: rotate(0deg);
+  }
+
+  87% {
+    transform: rotate(6deg);
+  }
+
+  94% {
+    transform: rotate(-6deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

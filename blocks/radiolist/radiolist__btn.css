@@ -1,0 +1,11 @@
+.radiolist__btn {
+  font-size: 26px;
+  height: 40px;
+}
+
+@media screen and (min-width: 599px) {
+  .radiolist__btn {
+    font-size: 36px;
+    height: 46px;
+  }
+}

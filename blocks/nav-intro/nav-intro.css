@@ -1,0 +1,7 @@
+.nav-intro {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  align-items: center;
+}

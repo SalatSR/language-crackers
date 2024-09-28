@@ -1,0 +1,17 @@
+.radiolist__input {
+  font-family: 'Dimkin light';
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.radiolist__input input {
+  padding: 0 0 0 8px;
+  height: 32px;
+}
+
+@media screen and (min-width: 599px) {
+  .radiolist__input {
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+}
