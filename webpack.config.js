@@ -47,7 +47,9 @@ module.exports = {
       template: './index.html'
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'main.css?<?echo time();?>'
+    }),
 
   ]
 }
