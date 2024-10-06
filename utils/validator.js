@@ -1,27 +1,20 @@
-import { addUniqueIdToPair } from '../pages/index.js';
+import { addUniqueIdToPair, clearInputs } from '../pages/index.js';
 
-const WORD_ONE = document.querySelector('.input_word-one input');
-const WORD_TWO = document.querySelector('.input_word-two input');
+// const WORD_ONE = document.querySelector('.input_word-one input');
+// const WORD_TWO = document.querySelector('.input_word-two input');
 const RADIO_LIST = document.querySelectorAll('.input-radio input');
 const RADIO_LIST_ERR_MSG = document.querySelector('.radiolist__err-message');
 
-/** Стираем значения инпутов */
-function clearInputs(params) {
-  WORD_ONE.value = '';
-  WORD_TWO.value = '';
-}
-
-/** Получаем значение инпутов для проверки */
-function getWords() {
-  let newPair = [WORD_ONE.value, WORD_TWO.value];
-  return newPair;
-}
-
 /** Проверяем все ли слова введены */
-function checkRadioFormInputValue(params) {
-  let pair = getWords();
-  if (!pair[0] == '' && !pair[1] == '') {
-    return ['', 'isFill', pair];
+function checkRadioFormInputValue(pair) {
+  console.log('wefwf', pair);
+  console.log('12324234', pair.wordOne);
+  
+  if (!pair.wordOne == '' && !pair.wordTwo == '') {
+    return {
+      'isFill': 'isFill',
+      'newPair': pair
+    };
   } else {
     RADIO_LIST_ERR_MSG.innerHTML = 'Слово не введено';
     return 'null';
@@ -49,14 +42,14 @@ function checkRadioFormLevel(params) {
 }
 
 /** Проверяем заполнение формы перед добавлением новых слов */
-function validateRadioForm() {
+function validateRadioForm(newpair) {
   let radio = checkRadioFormLevel();
-  let pair = checkRadioFormInputValue();
+  let controlObj = checkRadioFormInputValue(newpair);
 
-  if (pair == 'null' || radio == 'null') {
+  if (controlObj == 'null' || radio == 'null') {
     return;
-  } else if (pair[1] == 'isFill' && radio[1] == 'checked') {
-    addUniqueIdToPair(radio[2].value, pair[2]);
+  } else if (controlObj.isFill == 'isFill' && radio[1] == 'checked') {
+    addUniqueIdToPair(radio[2].value, controlObj.newPair);
     radio[2].checked = false;
     clearInputs();
   } else {

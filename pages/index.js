@@ -1,7 +1,7 @@
 import './index.css?<?echo time();?>';
 import { TIMER_SETTER, gameInterval, setTimeToTimerPanel, setTimer, setUserTime } from '../utils/setTtimer.js';
 import { validateRadioForm } from '../utils/validator.js';
-import { viewScore, openPopup } from '../utils/popup.js';
+import { showMessage, openPopup } from '../utils/popup.js';
 import { defaultWords } from '../utils/defaultVariables.js';
 
 /** START Service Worker */
@@ -61,6 +61,9 @@ const CHECK_LIST = document.querySelectorAll('.input-check input');
 
 /** Общее */
 
+const WORD_ONE = document.querySelector('.input_word-one input');
+const WORD_TWO = document.querySelector('.input_word-two input');
+
 /** Записываем новые пары в localStorage */
 function setLocalStorage() {
   localStorage.setItem('user', JSON.stringify(variableObject));
@@ -79,8 +82,8 @@ function getLocalStorage() {
 }
 
 /** Добавляем новые пары */
-function addNewPair(array, pair) {
-  variableObject[array].push(pair);
+function addNewPair(array, newObj) {
+  variableObject[array].push(newObj);
   setLocalStorage();
 }
 
@@ -170,11 +173,10 @@ function encryptString(str) {
 }
 
 /** Связываем униакльное значение с его парой */
-function addUniqueIdToPair(level, pair) {
-  console.log('addUniqueIdToPair(', level, pair);
-  let uniqueId = encryptString(pair[1]);
-  pair.unshift(uniqueId)
-  addNewPair(level, pair);
+function addUniqueIdToPair(level, newObj) {
+  let uniqueId = encryptString(newObj.wordOne);
+  newObj.uniqueId = uniqueId;
+  addNewPair(level, newObj);
 }
 
 /** Кнопка открытия меню */
@@ -184,6 +186,22 @@ BTN_MENU.addEventListener('click', () => {
   setBtnBack(MENU, 'menu', MAIN_SCREEN);
 })
 
+/** Получаем значение инпутов для проверки */
+function getWords() {
+  let newPair = {
+    'uniqueId': null,
+    'wordOne': WORD_ONE.value,
+    'wordTwo': WORD_TWO.value
+  };
+  validateRadioForm(newPair);
+}
+
+/** Стираем значения инпутов */
+function clearInputs(params) {
+  WORD_ONE.value = '';
+  WORD_TWO.value = '';
+}
+
 /** POPUP добавление новых слов */
 function setPopupContentPlateNewWords() {
   const MENU_PLATE_ADD_NEW_WORDS = document.getElementById('popup-plate-add-new-words');
@@ -192,7 +210,7 @@ function setPopupContentPlateNewWords() {
   const BTN_ADD = document.querySelector('.btn_submit-radio');
   BTN_ADD.addEventListener('click', (event) => {
     event.preventDefault();
-    validateRadioForm();
+    getWords();
   })
   return MENU_PLATE_ADD_NEW_WORDS;
 }
@@ -258,21 +276,24 @@ function getPair() {
   return summArray[_setRandom(summArray.length)];
 }
 
-function setPair(couple) {
-
+function setPair(obj) {
   let leftSlot = getEmptySlot('left');
   let rightSlot = getEmptySlot('right');
 
   if (!leftSlot || !rightSlot) return;
-
-  leftSlot.style.opacity = 1;
-  leftSlot.textContent = couple[1];
-  leftSlot.setAttribute('data-pair', couple[0]);
-  leftSlot.setAttribute('data-state', 'fill');
-  rightSlot.style.opacity = 1;
-  rightSlot.textContent = couple[2];
-  rightSlot.setAttribute('data-pair', couple[0]);
-  rightSlot.setAttribute('data-state', 'fill');
+  if (obj === undefined) {
+    openPopup(showMessage('', 'Недостаточно слов в словаре'));
+    resetGame();
+  } else {
+    leftSlot.style.opacity = 1;
+    leftSlot.textContent = obj.wordOne;
+    leftSlot.setAttribute('data-pair', obj.uniqueId);
+    leftSlot.setAttribute('data-state', 'fill');
+    rightSlot.style.opacity = 1;
+    rightSlot.textContent = obj.wordTwo;
+    rightSlot.setAttribute('data-pair', obj.uniqueId);
+    rightSlot.setAttribute('data-state', 'fill');
+  }
 }
 
 /** Записываем новые пары слов взамен найденных */
@@ -285,8 +306,8 @@ function setWorkArray() {
 }
 
 /** Удаляем из рабочего массива использованные пары слов */
-function findIndexOfPair(firstWord, secondWord) {
-  let deletedIndex = workArray.indexOf(workArray.find(t => t.find(i => i === (firstWord || secondWord))));
+function findIndexOfPair(dataPair) {
+  let deletedIndex = workArray.indexOf(workArray.find(object => object.uniqueId === dataPair));
   workArray.splice(deletedIndex, 1);
 }
 
@@ -308,7 +329,7 @@ function addPiecesForCracker(cards) {
     for (let i = 0; i < 7; i++) {
       let piece = document.createElement('div');
       piece.classList.add('piece');
-      piece.classList.add('piece' + (i+1));
+      piece.classList.add('piece' + (i + 1));
       card.appendChild(piece);
     }
   })
@@ -352,7 +373,7 @@ function restartFirstCardClick() {
 /** Проверяем карточки на совпадение пары */
 function checkPairs(card, pairNumber) {
   if ((firstCardClick == pairNumber) && (firstCard.textContent !== card.textContent)) {
-    findIndexOfPair(firstCard.textContent, card.textContent);
+    findIndexOfPair(firstCard.getAttribute('data-pair'));
     deletePairs(card);
     restartFirstCardClick();
     totalFoundedPairsCount++;
@@ -445,7 +466,7 @@ function setBtnBack(thisScreen, id, prevScreen) {
 };
 
 function endGame(params) {
-  openPopup(viewScore('Ваш счёт:', totalFoundedPairsCount));
+  openPopup(showMessage('Ваш счёт:', totalFoundedPairsCount));
   resetGame();
   clearInterval(interval);
 }
@@ -464,4 +485,4 @@ BTN_START.addEventListener('click', () => {
   toggleBtnMenuToReset('btn_menu', 'btn_reset');
 })
 
-export { endGame, addUniqueIdToPair };
+export { endGame, addUniqueIdToPair, clearInputs };
