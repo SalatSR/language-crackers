@@ -6,3 +6,22 @@
 .checklist label:last-child {
   margin-bottom: 10px;
 }
+
+.checklist label:nth-child(2) {
+  margin-bottom: 10px;
+}
+
+.checklist__input-radio {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.checklist__input-radio input {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 599px) {
+  .checklist__input-radio {
+    font-size: 40px;
+  }
+}

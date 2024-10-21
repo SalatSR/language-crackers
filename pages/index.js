@@ -2,7 +2,7 @@ import './index.css?<?echo time();?>';
 import { TIMER_SETTER, gameInterval, setTimeToTimerPanel, setTimer, setUserTime } from '../utils/setTtimer.js';
 import { validateRadioForm } from '../utils/validator.js';
 import { showMessage, openPopup } from '../utils/popup.js';
-import { defaultWords } from '../utils/defaultVariables.js';
+import { defaultDictionary } from '../utils/defaultVariables.js';
 
 /** START Service Worker */
 // window.addEventListener('load', async () => {
@@ -26,8 +26,7 @@ let elementaryWords = [];
 let intermediateWords = [];
 let advancedWords = [];
 
-let variableObject = {
-  'defaultWords': defaultWords,
+let userDictionary = {
   'elementaryWords': elementaryWords,
   'intermediateWords': intermediateWords,
   'advancedWords': advancedWords
@@ -57,6 +56,7 @@ let interval;
 const MENU = document.querySelector('.menu');
 const BTN_MENU_ADD_NEW_WORDS = document.getElementById('btn-add-new-words');
 const BTN_MENU_GAME_SETTING = document.getElementById('btn-game-settings');
+const DICTIONARIES_LIST = document.querySelectorAll('.checklist__input-radio input');
 const CHECK_LIST = document.querySelectorAll('.input-check input');
 
 /** Общее */
@@ -66,7 +66,7 @@ const WORD_TWO = document.querySelector('.input_word-two input');
 
 /** Записываем новые пары в localStorage */
 function setLocalStorage() {
-  localStorage.setItem('user', JSON.stringify(variableObject));
+  localStorage.setItem('user', JSON.stringify(userDictionary));
 }
 
 /** Проверяем наличие данных в localStorage, если есть вписываем в переменные, если нет */
@@ -75,15 +75,15 @@ function getLocalStorage() {
     setLocalStorage();
     return;
   } else {
-    elementaryWords = JSON.parse(localStorage.getItem('user', variableObject.elementaryWords));
-    intermediateWords = JSON.parse(localStorage.getItem('user', variableObject.intermediateWords));
-    advancedWords = JSON.parse(localStorage.getItem('user', variableObject.advancedWords));
+    elementaryWords = JSON.parse(localStorage.getItem('user', userDictionary.elementaryWords));
+    intermediateWords = JSON.parse(localStorage.getItem('user', userDictionary.intermediateWords));
+    advancedWords = JSON.parse(localStorage.getItem('user', userDictionary.advancedWords));
   }
 }
 
 /** Добавляем новые пары */
 function addNewPair(array, newObj) {
-  variableObject[array].push(newObj);
+  userDictionary[array].push(newObj);
   setLocalStorage();
 }
 
@@ -142,20 +142,43 @@ BTN_ABOUT.addEventListener('click', () => {
 /** ПАНЕЛЬ МЕНЮ */
 
 /** Создаём общий массив */
-function setSummArray(count, array) {
+function setSummArray(count, dictionary, array) {
+  let source;
+  if (dictionary == 'defaultDictionary') {
+    source = defaultDictionary;
+  } else if (dictionary == 'userDictionary') {
+    source = userDictionary;
+  } else {
+    alert('Ошибка словарей');
+    return;
+  }
+
   if (count == 1) {
-    summArray = variableObject[array];
+    summArray = source[array];
   } else if (count == 2) {
-    summArray = variableObject[array[0]].concat(variableObject[array[1]]);
+    summArray = source[array[0]].concat(source[array[1]]);
   } else if (count == 3) {
-    summArray = variableObject[array[0]].concat(variableObject[array[1]].concat(variableObject[array[2]]));
+    summArray = source[array[0]].concat(source[array[1]].concat(source[array[2]]));
   }
   setWorkArray();
   toggleFormState(CHECK_LIST, 1);
 }
 
+/** Получаем выбранный словарь */
+function getDictionary(params) {
+  DICTIONARIES_LIST.forEach(element => {
+    if (element.checked) {
+      checkSourceArray(element.value);
+      return;
+    } else {
+      return;
+    }
+  });
+  
+}
+
 /** Получаем массивы выбранных уравней */
-function checkSourceArray(params) {
+function checkSourceArray(dictionary) {
   let count = 0;
   let array = [];
   for (let i = 0; i < CHECK_LIST.length; i++) {
@@ -164,7 +187,8 @@ function checkSourceArray(params) {
       count++;
     }
   }
-  setSummArray(count, array);
+
+  setSummArray(count, dictionary, array);
 }
 
 /** Генерируем уникальное значение для каждой пары слов */
@@ -475,7 +499,7 @@ BTN_START.addEventListener('click', () => {
   BTN_START.style.display = 'none';
   CARDS_CONTAINER.style.opacity = '1';
   toggleCardState(CARDS_CONTAINER, "auto");
-  checkSourceArray();
+  getDictionary();
   setPairs(workArray);
   setTimer(TIMER_SETTER.value);
   interval = setInterval(() => {

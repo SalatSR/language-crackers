@@ -216,10 +216,14 @@
         <fieldset id="popup-plate-game-settings" class="menu__plate plate plate_checkplate text-main">
           <legend>Выбери языковой уровень</legend>
           <form class="plate__checklist checklist" name="form-to-check-game-lavel">
-            <label class="checklist__input-check input-check"><input type="checkbox" id="defaultWords" name="interest"
-                value="defaultWords" checked> Стартовый набор</label>
+            <label class="checklist__input-radio input-radio" for="defaultDictionary"><input type="radio" id="defaultDictionary" name="dictionary"
+                value="defaultDictionary" checked />
+              Базовый словарь</label>
+            <label class="checklist__input-radio input-radio" for="userDictionary"><input type="radio" id="userDictionary" name="dictionary"
+                value="userDictionary" />
+              Пользовательский словарь</label>
             <label class="checklist__input-check input-check"><input type="checkbox" id="elementaryWords"
-                name="interest" value="elementaryWords"> Elementary</label>
+                name="interest" value="elementaryWords" checked> Elementary</label>
             <label class="checklist__input-check input-check"><input type="checkbox" id="intermediateWords"
                 name="interest" value="intermediateWords"> Intermediate</label>
             <label class="checklist__input-check input-check"><input type="checkbox" id="advancedWords" name="interest"
